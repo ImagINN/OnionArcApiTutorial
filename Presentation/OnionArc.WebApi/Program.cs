@@ -1,3 +1,5 @@
+using OnionArc.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,8 +14,9 @@ var env = builder.Environment;
 builder.Configuration
     .SetBasePath(env.ContentRootPath) // Dinamik olarak base path ayarlandý
     .AddJsonFile("appsettings.json", optional: false) // appsettings.json dosyasýný ekle ve her zaman eklemeli
-    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true) // Ortam deðiþkenine göre appsettings dosyasýný ekle
-    ;
+    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true); // Ortam deðiþkenine göre appsettings dosyasýný ekle
+
+builder.Services.AddPersistence(builder.Configuration); // Persistence katmanýný ekle. Konfigurasyon ayarladýktan sonraki satýrlara yazýlmalý
 
 var app = builder.Build();
 
