@@ -18,4 +18,8 @@
     <ProjectReference Include="..\..\Infrastructure\OnionArc.Persistence\OnionArc.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
