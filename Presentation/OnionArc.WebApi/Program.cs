@@ -1,3 +1,4 @@
+using OnionArc.Application;
 using OnionArc.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true); // Ortam deðiþkenine göre appsettings dosyasýný ekle
 
 builder.Services.AddPersistence(builder.Configuration); // Persistence katmanýný ekle. Konfigurasyon ayarladýktan sonraki satýrlara yazýlmalý
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
