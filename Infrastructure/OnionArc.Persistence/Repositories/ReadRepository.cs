@@ -2,22 +2,15 @@
 using Microsoft.EntityFrameworkCore.Query;
 using OnionArc.Application.Interfaces.Repositories;
 using OnionArc.Domain.Common;
-using OnionArc.Persistence.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace OnionArc.Persistence.Repositories;
 
 public class ReadRepository<T> : IReadRepository<T> where T : class, IEntityBase, new()
 {
-    private readonly AppDbContext _context;
+    private readonly DbContext _context;
 
-    public ReadRepository(AppDbContext context )
+    public ReadRepository(DbContext context )
     {
         _context = context;
     }
@@ -83,10 +76,5 @@ public class ReadRepository<T> : IReadRepository<T> where T : class, IEntityBase
             Table.AsNoTracking();
 
         return Table.Where(predicate);
-    }
-
-    public Task<T> GetByIdAsync(int id)
-    {
-        throw new NotImplementedException();
     }
 }
