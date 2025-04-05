@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OnionArc.Application.Interfaces.Repositories;
 using OnionArc.Persistence.Context;
+using OnionArc.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +20,7 @@ public static class Registration
         {
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
+
+        services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
     }
 }
