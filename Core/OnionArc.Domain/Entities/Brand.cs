@@ -18,6 +18,6 @@ public class Brand : EntityBase
         Name = name;
         Logo = logo;
     }
-    public required string Name { get; set; }
-    public required string Logo { get; set; }
+    public string Name { get; set; }
+    public string Logo { get; set; }
 }
