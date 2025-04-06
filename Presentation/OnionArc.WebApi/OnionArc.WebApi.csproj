@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\OnionArc.Mapper\OnionArc.Mapper.csproj" />
     <ProjectReference Include="..\..\Infrastructure\OnionArc.Persistence\OnionArc.Persistence.csproj" />
   </ItemGroup>
 

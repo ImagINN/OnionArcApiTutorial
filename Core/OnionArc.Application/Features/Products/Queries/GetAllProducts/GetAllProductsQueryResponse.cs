@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnionArc.Application.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +13,5 @@ public class GetAllProductsQueryResponse
     public string Description { get; set; }
     public decimal Price { get; set; }
     public decimal Discount { get; set; }
+    public BrandDto Brand { get; set; } // BrandDto sınıfından türese de ismi main entity ismi ile aynı olmalı
 }
