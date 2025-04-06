@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArc.Persistence", "Infrastructure\OnionArc.Persistence\OnionArc.Persistence.csproj", "{FB80C946-419E-42D7-B1CA-6E62C023CEA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArc.WebApi", "Presentation\OnionArc.WebApi\OnionArc.WebApi.csproj", "{7FE3F2EB-33C8-435C-B73B-7F69916B2AC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArc.Mapper", "Core\OnionArc.Mapper\OnionArc.Mapper.csproj", "{0E0669A3-4DA8-491A-96C9-43C45BFC2BFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7FE3F2EB-33C8-435C-B73B-7F69916B2AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE3F2EB-33C8-435C-B73B-7F69916B2AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE3F2EB-33C8-435C-B73B-7F69916B2AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E0669A3-4DA8-491A-96C9-43C45BFC2BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E0669A3-4DA8-491A-96C9-43C45BFC2BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E0669A3-4DA8-491A-96C9-43C45BFC2BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E0669A3-4DA8-491A-96C9-43C45BFC2BFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{FE073D00-2A0C-46D2-BF3E-DE30D273D486} = {89CE6B58-5DC5-4F21-8D93-1199FBDDA2BE}
 		{FB80C946-419E-42D7-B1CA-6E62C023CEA7} = {89CE6B58-5DC5-4F21-8D93-1199FBDDA2BE}
 		{7FE3F2EB-33C8-435C-B73B-7F69916B2AC6} = {87A3FE83-4A7D-47E4-AC0F-A4AD5F569240}
+		{0E0669A3-4DA8-491A-96C9-43C45BFC2BFF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {06D816B9-06EF-4B85-BC3B-E19F76D0D8D8}
