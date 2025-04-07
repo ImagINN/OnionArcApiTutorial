@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnionArc.Application.Features.Products.Queries.GetAllProducts;
+namespace OnionArc.Application.Features.Products.Queries.GetProductById;
 
-public class GetAllProductsQueryResponse
+public class GetProductByIdQueryResponse
 {
     public string Title { get; set; }
-    //public string Description { get; set; }
+    public string Description { get; set; }
     public decimal Price { get; set; }
     public decimal Discount { get; set; }
-    public BrandDto Brand { get; set; } // BrandDto sınıfından türese de ismi main entity ismi ile aynı olmalı
+    public BrandDto Brand { get; set; }
 }
