@@ -1,4 +1,5 @@
 using OnionArc.Application;
+using OnionArc.Application.Exceptions;
 using OnionArc.Mapper;
 using OnionArc.Persistence;
 
@@ -30,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureExceptionHandlingMiddleware();
 
 app.UseAuthorization();
 
