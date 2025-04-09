@@ -1,7 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using OnionArc.Application.Beheviors;
 using OnionArc.Application.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -18,5 +22,10 @@ public static class Registration
         services.AddTransient<ExceptionMiddleware>();
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+    
+        services.AddValidatorsFromAssembly(assembly);
+        ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr-TR");
+
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
     }
 }
