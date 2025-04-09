@@ -20,6 +20,9 @@ public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQueryReq
 
     public async Task<GetProductByIdQueryResponse> Handle(GetProductByIdQueryRequest request, CancellationToken cancellationToken)
     {
+        if (request.Id == 0)
+            throw new Exception("Product Id cannot be null or empty");
+
         var product = await unitOfWork.GetReadRepository<Product>().GetAsync(p => p.Id == request.Id, include: x => x.Include(b => b.Brand));
 
         var brand = mapper.Map<BrandDto, Brand>(new Brand());
