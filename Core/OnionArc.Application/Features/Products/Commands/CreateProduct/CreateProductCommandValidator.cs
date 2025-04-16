@@ -42,9 +42,6 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
             .WithMessage("Price must be greater than 0");
 
         RuleFor(x => x.Discount)
-            .NotEmpty()
-            .WithName("İndirim")
-            .WithMessage("Discount cannot be empty")
             .GreaterThanOrEqualTo(0)
             .WithMessage("Discount must be greater than or equal to 0")
             .LessThanOrEqualTo(100)
