@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnionArc.Application.Interfaces.Repositories;
 using OnionArc.Application.Interfaces.UnitOfWorks;
+using OnionArc.Domain.Entities;
 using OnionArc.Persistence.Context;
 using OnionArc.Persistence.Repositories;
 using OnionArc.Persistence.UnitOfWorks;
@@ -27,5 +28,17 @@ public static class Registration
         services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddIdentityCore<User>(opt =>
+        {
+            opt.Password.RequireNonAlphanumeric = false;
+            opt.Password.RequiredLength = 2;
+            opt.Password.RequireUppercase = false;
+            opt.Password.RequireLowercase = false;
+            opt.Password.RequireDigit = false;
+            opt.SignIn.RequireConfirmedEmail = false;
+        })
+            .AddRoles<Role>()
+            .AddEntityFrameworkStores<AppDbContext>();
     }
 }
