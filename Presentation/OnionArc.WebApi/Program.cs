@@ -1,5 +1,6 @@
 using OnionArc.Application;
 using OnionArc.Application.Exceptions;
+using OnionArc.Infrastructure;
 using OnionArc.Mapper;
 using OnionArc.Persistence;
 
@@ -20,6 +21,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true); // Ortam deðiþkenine göre appsettings dosyasýný ekle
 
 builder.Services.AddPersistence(builder.Configuration); // Persistence katmanýný ekle. Konfigurasyon ayarladýktan sonraki satýrlara yazýlmalý
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 
