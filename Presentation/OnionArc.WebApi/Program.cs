@@ -3,6 +3,7 @@ using OnionArc.Application.Exceptions;
 using OnionArc.Infrastructure;
 using OnionArc.Mapper;
 using OnionArc.Persistence;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,35 @@ builder.Services.AddPersistence(builder.Configuration); // Persistence katmanýný
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnionArc API", Version = "v1", Description = "OnionArc API Tutorial Swagger Client." });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+    c.CustomSchemaIds(type => type.FullName); // Swagger'da her model için benzersiz bir isim oluþturur
+});
 
 var app = builder.Build();
 
