@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnionArc.Application.Features.Products.Commands.CreateProduct;
@@ -21,6 +22,7 @@ namespace OnionArc.WebApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var response = await _mediator.Send(new GetAllProductsQueryRequest());
