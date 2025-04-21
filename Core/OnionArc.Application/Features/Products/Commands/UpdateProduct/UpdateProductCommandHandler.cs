@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using OnionArc.Application.Bases;
 using OnionArc.Application.Interfaces.AutoMapper;
 using OnionArc.Application.Interfaces.UnitOfWorks;
 using OnionArc.Domain.Entities;
@@ -10,15 +12,10 @@ using System.Threading.Tasks;
 
 namespace OnionArc.Application.Features.Products.Commands.UpdateProduct
 {
-    class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, Unit>
+    class UpdateProductCommandHandler : BaseHandler, IRequestHandler<UpdateProductCommandRequest, Unit>
     {
-        private readonly IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
-
-        public UpdateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor)
         {
-            this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
         }
 
         public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
