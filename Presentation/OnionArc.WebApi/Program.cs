@@ -14,6 +14,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHttpContextAccessor(); // HttpContext'i Dependency Injection ile kullanabilmek için eklenir
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // IHttpContextAccessor arayüzünü uygulayan bir sýnýf eklenir
+
 var env = builder.Environment;
 
 builder.Configuration

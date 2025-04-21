@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnionArc.Application.Features.Products.Exceptions;
 
-public class ProductTitleMustNotBeSameException : BaseExceptions
+public class ProductTitleMustNotBeSameException : BaseException
 {
     public ProductTitleMustNotBeSameException() : base("Aynı isme sahip zaten bir ürün var.") { }
 }
