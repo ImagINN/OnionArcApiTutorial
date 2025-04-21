@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnionArc.Application.Features.Auth.Command.Login;
 using OnionArc.Application.Features.Auth.Command.Register;
 
 namespace OnionArc.WebApi.Controllers;
@@ -21,5 +22,12 @@ public class AuthController : ControllerBase
     {
         await mediator.Send(request);
         return StatusCode(StatusCodes.Status201Created);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginCommandRequest request)
+    {
+        LoginCommandResponse response = await mediator.Send(request);
+        return StatusCode(StatusCodes.Status200OK, response);
     }
 }
