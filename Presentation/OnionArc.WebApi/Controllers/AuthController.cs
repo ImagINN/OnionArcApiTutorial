@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using OnionArc.Application.Features.Auth.Command.Login;
 using OnionArc.Application.Features.Auth.Command.RefreshToken;
 using OnionArc.Application.Features.Auth.Command.Register;
+using OnionArc.Application.Features.Auth.Command.Revoke;
+using OnionArc.Application.Features.Auth.Command.RevokeAll;
 
 namespace OnionArc.WebApi.Controllers;
 
@@ -37,5 +39,19 @@ public class AuthController : ControllerBase
     {
         RefreshTokenCommandResponse response = await mediator.Send(request);
         return StatusCode(StatusCodes.Status200OK, response);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Revoke(RevokeCommandRequest request)
+    {
+        await mediator.Send(request);
+        return StatusCode(StatusCodes.Status200OK);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RevokeAll()
+    {
+        await mediator.Send(new RevokeAllCommandRequest());
+        return StatusCode(StatusCodes.Status200OK);
     }
 }
