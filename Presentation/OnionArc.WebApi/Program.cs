@@ -5,6 +5,9 @@ using OnionArc.Mapper;
 using OnionArc.Persistence;
 using Microsoft.OpenApi.Models;
 
+// BU BÝR DENEMEDÝR
+// Bu da deneme child.
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
